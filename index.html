@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="sv">
     <head>
         <meta charset="utf-8" />
-        <meta name="author" content="Marcus Otterström" />
-        <title>Mickes naturkunskap</title>
-        <link rel="stylesheet" href="css/index.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Mickes naturkunskap | Hem</title>
+        <link rel="stylesheet" href="css/main.css" />
     </head>
     <body>
         <header>
@@ -12,15 +13,42 @@
                 <div id="title">
                     <h1><a href="index.html">Mickes naturkunskap</a></h1>
                 </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" class="highlight">Hem</a></li>
+                        <li><a href="info.html">Information</a></li>
+                    </ul>
+                </nav>
             </div>
         </header>
 
-        <div class="container">
-            <ul>
-                <li><a href="birds.html">Birds</a></li>
-                <li><a href="mammals.html">Mammals</a></li>
-                <li><a href="trees.html">Trees</a></li>
-            </ul>
-        </div>
+        <main>
+            <section id="showcase">
+                <div class="container">
+                    <h1>Mickes naturkunskap</h1>
+                </div>
+            </section>
+
+            <section id="instructions">
+                <div class="container">
+                    <h2>Välj kategori nedan</h2>
+                </div>
+            </section>
+
+            <section id="boxes">
+                <div class="box">
+                    <h3>Däggdjur</h3>
+                    <img src="Images/forest.jpg" alt="Däggdjur" title="Däggdjur" id="mammals">
+                </div>
+                <div class="box">
+                    <h3>Fåglar</h3>
+                    <img src="Images/forest.jpg" alt="Fåglar" title="Fåglar" id="birds">
+                </div>
+                <div class="box">
+                    <h3>Träd</h3>
+                    <img src="Images/forest.jpg" alt="Träd" title="Träd" id="trees">
+                </div>
+            </section>
+        </main>
     </body>
 </html>
