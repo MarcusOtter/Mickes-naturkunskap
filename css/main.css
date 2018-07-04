@@ -3,7 +3,6 @@ body
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     line-height: 1.5;
-    padding: 0;
     margin: 0;
     background-color: #303030;
 }
@@ -27,8 +26,8 @@ header
 {
     background: #151515;
     color: #F0F0F0;
-    padding-top: 35px;
-    min-height: 70px;
+    padding-top: 25px;
+    min-height: 50px;
     border-bottom: #45BF55 4px solid;
 }
 
@@ -40,7 +39,6 @@ header a
 
 header li
 {
-    float: left;
     display: inline;
     font-size: 16px;
     padding: 0 20px 0 20px;
@@ -55,6 +53,7 @@ header #title
 header #title h1
 {
     margin: 0;
+    margin-bottom: 10px;
 }
 
 header nav
@@ -69,7 +68,7 @@ header .highlight
     font-weight: bold;
 }
 
-header li:hover
+header li a:hover
 {
     text-decoration: underline;
 }
@@ -78,11 +77,8 @@ header li:hover
 #showcase 
 {
     min-height: 400px;
-    background: url("../Images/racoon.jpg") no-repeat 0 -500px;
-    text-align: center;
-    color: #F0F0F0;
-    margin-left: 0px;
-    margin-right: 0px;
+    background: url("../Images/racoon.jpg") no-repeat;
+    background-position: 40%;
 }
 
 #showcase h1
@@ -90,8 +86,8 @@ header li:hover
     margin-top: 300px;
     font-size: 60px;
     margin-bottom: 10px;
-    margin-left: 0px;
-    margin-right: 0px;
+    color: #F0F0F0;
+    text-align: center;
 }
 
 /* Instructions */
@@ -105,42 +101,33 @@ header li:hover
 {
     text-align: center;
     font-size: 26px;
+    color: #45BF55;
 }
 
 /* Category selection */
-#boxes
-{
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    height: 300px;
-}
-
 .box
 {
     float: left;
     text-align: center;
-    width: 31%;
-    padding: 1%;
+    width: 31.3%;
+    margin: 1%
 }
 
 .box img
 {
     width: 100%;
-    height: 250px;
-    font-size: 40px;
-    border: none;
 }
 
 .box h3
 {
-    display: inline;
-    font-size: 25px;
-    color: white;
-    font-weight: 1;
+    font-size: 28px;
+    color: #F0F0F0;
+    margin: 10px;
 }
 
 .box:hover
 {
-    box-shadow: 0 5px 12px 5px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.4),
+                0 0 20px 0 rgba(0, 0, 0, 0.8);
 }
