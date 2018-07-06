@@ -148,3 +148,65 @@ header li a:hover
     color: #F0F0F0;
     padding: 20px;
 }
+
+/* Quiz */
+.sidebar
+{
+    float:left;
+    width: 30%;
+    background-color: #151515;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
+    color: #f0f0f0;
+    text-align: center;
+}
+
+.sidebar section
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 80%;
+    margin-left: 10%; /* Center the divs */
+    font-size: 30px;
+}
+
+#sectionHeader
+{
+    color: #000000;
+    background-color: #45BF55;
+    margin: 0;
+    padding: 10px;
+    font-size: 40px;
+}
+
+.quizElement
+{
+    margin-top: 20px;
+}
+
+.sidebar #leftSide
+{
+    width: 50%;
+    float: left;
+}
+
+.sidebar #rightSide
+{
+    width: 50%;
+    float: right;
+}
+
+.quizContent
+{
+    float:right;
+    width: 65%;
+    background-color: #151515;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
+}
+
+.pageTitle
+{
+    text-align: center;
+    color: #f0f0f0;
+    font-size: 70px;
+    margin: 0;
+}

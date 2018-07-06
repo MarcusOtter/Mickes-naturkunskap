@@ -24,9 +24,97 @@
         </header>
 
         <main>
-            <div class="container">
-                <h1>Däggdjur</h1>
+            <div class="quizContent">
+                <h1 class="pageTitle">Däggdjur</h1>
             </div>
+
+            <aside class="sidebar">
+                <h3 id="sectionHeader">Vilket är djuret?</h3>
+                <section>
+                    <div class="quizElement">
+                        <div id="leftSide">
+                            <label for="ordning">Ordning</label>
+                        </div>
+                        <div id="rightSide">
+                            <select name="ordning" id="ordning">
+                                <option selected="selected">Välj ordning</option>
+                                <option>Rovdjur</option>
+                                <option>Partåiga hovdjur</option>
+                                <option>Hardjur</option>
+                                <option>Gnagare</option>
+                                <option>Äkta insektsätare</option>
+                                <option>Fladdermöss</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="quizElement">
+                        <div id="leftSide">
+                            <label for="familj">Familj</label>
+                        </div>
+                        <div id="rightSide">
+                            <select name="familj" id="familj">
+                                <option selected="selected">Välj familj</option>
+                                <option>Björnar</option>
+                                <option>Hunddjur</option>
+                                <option>Mårddjur</option>
+                                <option>Kattdjur</option>
+                                <option>Hjortdjur</option>
+                                <option>Slidhornsdjur</option>
+                                <option>Svindjur</option>
+                                <option>Harar</option>
+                                <option>Bävrar</option>
+                                <option>Ekorrar</option>
+                                <option>Hamsterartade gnagare</option>
+                                <option>Råttdjur</option>
+                                <option>Igelkottdjur</option>
+                                <option>Mullvadsdjur</option>
+                                <option>Näbbmöss</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="quizElement">
+                        <div id="leftSide">
+                            <label for="underfamilj">Underfamilj</label>
+                        </div>
+                        <div id="rightSide">
+                            <select name="underfamilj" id="underfamilj">
+                                <option selected="selected">Välj underfamilj</option>
+                                <option>Ingen</option>
+                                <option>Sorkar</option>
+                                <option>Möss</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="quizElement">
+                        <div id="leftSide">
+                            <label>Art:</label> 
+                        </div>
+                        <div id="rightSide"></div>
+                        <input type="text">
+                    </div>
+
+                    <input type="button" value="Rätta">
+                </section>
+
+                <h3 id="sectionHeader">Rätt svar</h3>
+                <section>
+                    <div class="quizElement">
+                        <label>Orndning:</label>
+                    </div>
+                    <div class="quizElement">
+                        <label>Familj:</label>
+                    </div>
+                    <div class="quizElement">
+                        <label>Underfamilj:</label>
+                    </div>
+                    <div class="quizElement">
+                        <label>Art:</label>
+                    </div>
+                </section>
+            </aside>
         </main>
 
         <script src="jQuery.js"></script>
