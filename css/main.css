@@ -180,19 +180,37 @@ header li a:hover
 
 .quizElement
 {
-    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .sidebar #leftSide
 {
-    width: 50%;
-    float: left;
+    width: 45%;
+    height: 45px;
 }
 
 .sidebar #rightSide
 {
-    width: 50%;
+    width: 45%;
+    height: 45px;
     float: right;
+}
+
+.sidebar #rightSide input /* Text input */
+{
+    width: 85%;
+    height: 70%;
+    border: none;
+    font-size: 20px;
+    padding-left: 5%;
+}
+
+.sidebar select /* Dropdown */
+{
+    width: 90%;
+    height: 90%;
+    border: none;
+    padding-top: 12px;
 }
 
 .quizContent
