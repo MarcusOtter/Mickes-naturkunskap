@@ -26,101 +26,115 @@
         <main>
             <div class="quizContent">
                 <h1 class="pageTitle">Däggdjur</h1>
+                <img id="quizImg" src="../Images/mammals.jpg">
             </div>
 
             <aside class="sidebar">
                 <h3 id="sectionHeader">Vilket är djuret?</h3>
-                <section>
+                    <section>
+                        <form>
+                            <div class="quizElement">
+                                <span class="leftSide">
+                                    <label for="ordning">Ordning</label>
+                                </span>
+                                <span class="rightSide">
+                                    <select name="ordning" id="ordning">
+                                        <option selected="selected">Välj ordning</option>
+                                        <option>Rovdjur</option>
+                                        <option>Partåiga hovdjur</option>
+                                        <option>Hardjur</option>
+                                        <option>Gnagare</option>
+                                        <option>Äkta insektsätare</option>
+                                        <option>Fladdermöss</option>
+                                    </select>
+                                </span>
+                            </div>
+                            
+                            <div class="quizElement">
+                                <span class="leftSide">
+                                    <label for="familj">Familj</label>
+                                </span>
+                                <span class="rightSide">
+                                    <select name="familj" id="familj">
+                                        <option selected="selected">Välj familj</option>
+                                        <option>Björnar</option>
+                                        <option>Hunddjur</option>
+                                        <option>Mårddjur</option>
+                                        <option>Kattdjur</option>
+                                        <option>Hjortdjur</option>
+                                        <option>Slidhornsdjur</option>
+                                        <option>Svindjur</option>
+                                        <option>Harar</option>
+                                        <option>Bävrar</option>
+                                        <option>Ekorrar</option>
+                                        <option>Hamsterartade gnagare</option>
+                                        <option>Råttdjur</option>
+                                        <option>Igelkottdjur</option>
+                                        <option>Mullvadsdjur</option>
+                                        <option>Näbbmöss</option>
+                                    </select>
+                                </span>
+                            </div>
+                            
+                            <div class="quizElement">
+                                <span class="leftSide">
+                                    <label for="underfamilj">Underfamilj</label>
+                                </span>
+                                <span class="rightSide">
+                                    <select name="underfamilj" id="underfamilj">
+                                        <option selected="selected">Välj underfamilj</option>
+                                        <option>Ingen</option>
+                                        <option>Sorkar</option>
+                                        <option>Möss</option>
+                                    </select>
+                                </span>
+                            </div>
+                            
+                            <div class="quizElement">
+                                <span class="leftSide">
+                                    <label>Art:</label> 
+                                </span>
+                                <span class="rightSide">
+                                    <input type="text" id="art">
+                                </span>
+                            </div>
+                            
+                            <div>
+                                <input id="submitButton" type="button" value="Nästa">
+                            </div>
+                        </form>
+                    </section>  
+                <h3 id="sectionHeader">Statistik</h3>
+                <section class="stats">
                     <div class="quizElement">
-                        <span id="leftSide">
-                            <label for="ordning">Ordning</label>
+                        <span class="leftSide">
+                            <label>Rätt:</label>
                         </span>
-                        <span id="rightSide">
-                            <select name="ordning" id="ordning">
-                                <option selected="selected">Välj ordning</option>
-                                <option>Rovdjur</option>
-                                <option>Partåiga hovdjur</option>
-                                <option>Hardjur</option>
-                                <option>Gnagare</option>
-                                <option>Äkta insektsätare</option>
-                                <option>Fladdermöss</option>
-                            </select>
+                        <span class="rightSide" id="correct">
+                            0
                         </span>
                     </div>
-
                     <div class="quizElement">
-                        <span id="leftSide">
-                            <label for="familj">Familj</label>
+                        <span class="leftSide">
+                            <label>Fel:</label>
                         </span>
-                        <span id="rightSide">
-                            <select name="familj" id="familj">
-                                <option selected="selected">Välj familj</option>
-                                <option>Björnar</option>
-                                <option>Hunddjur</option>
-                                <option>Mårddjur</option>
-                                <option>Kattdjur</option>
-                                <option>Hjortdjur</option>
-                                <option>Slidhornsdjur</option>
-                                <option>Svindjur</option>
-                                <option>Harar</option>
-                                <option>Bävrar</option>
-                                <option>Ekorrar</option>
-                                <option>Hamsterartade gnagare</option>
-                                <option>Råttdjur</option>
-                                <option>Igelkottdjur</option>
-                                <option>Mullvadsdjur</option>
-                                <option>Näbbmöss</option>
-                            </select>
+                        <span class="rightSide" id="incorrect">
+                            0
                         </span>
                     </div>
-
                     <div class="quizElement">
-                        <span id="leftSide">
-                            <label for="underfamilj">Underfamilj</label>
+                        <span class="leftSide">
+                            <label>Andel rätt:</label>
                         </span>
-                        <span id="rightSide">
-                            <select name="underfamilj" id="underfamilj">
-                                <option selected="selected">Välj underfamilj</option>
-                                <option>Ingen</option>
-                                <option>Sorkar</option>
-                                <option>Möss</option>
-                            </select>
+                        <span class="rightSide" id="proportion">
+                            0%
                         </span>
-                    </div>
-
-                    <div class="quizElement">
-                        <span id="leftSide">
-                            <label>Art:</label> 
-                        </span>
-                        <span id="rightSide">
-                            <input type="text">
-                        </span>
-                    </div>
-                    
-                    <div>
-                        <input type="button" value="Rätta">
-                    </div>
-                </section>
-
-                <h3 id="sectionHeader">Rätt svar</h3>
-                <section>
-                    <div class="quizElement">
-                        <label>Orndning:</label>
-                    </div>
-                    <div class="quizElement">
-                        <label>Familj:</label>
-                    </div>
-                    <div class="quizElement">
-                        <label>Underfamilj:</label>
-                    </div>
-                    <div class="quizElement">
-                        <label>Art:</label>
                     </div>
                 </section>
             </aside>
         </main>
 
-        <script src="jQuery.js"></script>
-        <script src=""></script>
+        <script src="../jQuery.js"></script>
+        <script src="mammalQuiz.js"></script>
     </body>
 </html>

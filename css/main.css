@@ -21,6 +21,7 @@ ul
     padding: 0;
 }
 
+
 /* Header */
 header
 {
@@ -183,20 +184,20 @@ header li a:hover
     margin-bottom: 30px;
 }
 
-.sidebar #leftSide
+.sidebar .leftSide
 {
     width: 45%;
     height: 45px;
 }
 
-.sidebar #rightSide
+.sidebar .rightSide
 {
     width: 45%;
     height: 45px;
     float: right;
 }
 
-.sidebar #rightSide input /* Text input */
+.sidebar .rightSide input /* Text input */
 {
     width: 85%;
     height: 70%;
@@ -227,4 +228,24 @@ header li a:hover
     color: #f0f0f0;
     font-size: 70px;
     margin: 0;
+}
+
+#quizImg
+{
+    width: 100%;
+    height: 100%;
+}
+
+#submitButton
+{
+    border: none;
+    display: block;
+    height: 50px;
+    width: 100%;
+    font-size: 20px;
+}
+
+.incorrectHighlight
+{
+    background-color: red;
 }
