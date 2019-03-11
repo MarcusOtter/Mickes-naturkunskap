@@ -7,6 +7,11 @@
 
 /* Landing page
 ======================================== */
+.github-fork-ribbon:before
+{
+    background-color: #303030;
+}
+
 .quiz-selector
 {
     display: flex;
