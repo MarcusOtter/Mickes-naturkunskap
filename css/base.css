@@ -1,0 +1,28 @@
+@font-face 
+{
+    font-family: 'Permanent Marker';
+    src: url('../fonts/PermanentMarker-Regular.woff2') format('woff2'),
+         url('../fonts/PermanentMarker-Regular.woff')  format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body
+{
+    color: #303030;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Permanent Marker', sans-serif;
+}
+
+.background-image
+{
+    background-image: url("../img/kraft.jpg");
+    background-repeat: repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10;
+}
