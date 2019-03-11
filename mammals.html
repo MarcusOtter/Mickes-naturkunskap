@@ -4,33 +4,23 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Naturkunskap | Hem</title>
-        <link rel="stylesheet" href="../css/main.css" />
+        <title>Mickes Naturkunskap | Däggdjur</title>
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/main.css" />
     </head>
     <body>
-        <header>
-            <div class="container">
-                <div id="title">
-                    <h1><a href="../index.html">Mickes naturkunskap</a></h1>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="../index.html">Hem</a></li>
-                        <!--<li><a href="../info.html">Information</a></li>-->
-                        <li><a href="https://github.com/LeMorrow/Mickes-naturkunskap">Source code</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+        <div class="background-image"></div>
+        <div class="page-wrapper">
+            <header class="page-header">
+                <h1><a href="index.html">Mickes naturvetenskap</a></h1>
+                <h2>Däggdjur</h2>
+            </header>
 
-        <main>
-            <div class="quizContent">
-                <h1 class="pageTitle">Däggdjur</h1>
-                <img id="quizImg" src="../Images/mammals.jpg">
-            </div>
-
-            <aside class="sidebar">
-                <h3 id="sectionHeader">Vilket är djuret?</h3>
+            <!-- Quiz
+            ======================================== -->
+            <div class="quiz-wrapper">
+                <div class="quiz-image"></div>
+                    <h3 id="sectionHeader">Vilket är djuret?</h3>
                     <section>
                         <form>
                             <div class="quizElement">
@@ -131,10 +121,10 @@
                         </span>
                     </div>
                 </section>
-            </aside>
-        </main>
+            </div>
 
-        <script src="../jQuery.js" async></script>
+        </div>
+
         <script src="mammalQuiz.js" async></script>
     </body>
 </html>

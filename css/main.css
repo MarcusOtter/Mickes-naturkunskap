@@ -1,13 +1,12 @@
-.landing-container
+/* General page components
+======================================== */
+.page-header
 {
     text-align: center;
 }
 
-.landing-container h1
-{
-    font-size: 3rem;
-}
-
+/* Landing page
+======================================== */
 .quiz-selector
 {
     display: flex;
@@ -18,6 +17,7 @@
     justify-content: space-around;
     width: 80vw;
     margin: auto;
+    text-align: center;
 }
 
 .quiz-selector a
@@ -27,13 +27,48 @@
     flex-basis: 0;
     flex-grow: 1;
     margin: 0.5em;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.15);
     border-radius: 1em;
     text-decoration: none;
     color: inherit;
+
+    -webkit-transition-property: background-color, transform;
+    -o-transition-property: background-color, transform;
+    -moz-transition-property: background-color, transform;
+    transition-property: background-color, transform;
+
+    -webkit-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    transition-duration: 0.2s;
 }
 
 .quiz-selector a:hover
 {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
+
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+
+/* Quiz
+======================================== */
+.quiz-wrapper
+{
+    text-align: center;
+}
+
+.quiz-image
+{
+    margin: auto;
+    width: 80%;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.15);
+    background-repeat: none;
+    background-size: cover;
+    background-image: url("../img/mammals/brunbjörn.jpg");
+    background-position: center;
+    border-radius: 1em;
+    box-shadow: 0 0 7px #303030;
 }
