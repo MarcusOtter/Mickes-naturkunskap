@@ -13,6 +13,7 @@ body
     margin: 0;
     box-sizing: border-box;
     font-family: 'Permanent Marker', sans-serif;
+    overflow-x: hidden;
 }
 
 .background-image
@@ -27,11 +28,37 @@ body
     z-index: -10;
 }
 
-h1 { font-size: 3rem;   }
-h2 { font-size: 2.5rem; }
+h1, h2, h3, h4, h5, h6
+{
+    margin: 0.5em;
+    margin-bottom: 0.1em;
+}
+
+h1 
+{
+    font-size: 3rem; 
+}
 
 h1 a
 {
     text-decoration: none;
     color: inherit;
+}
+
+h2
+{
+    font-size: 2.5rem;
+    margin-top: 0;
+}
+
+h3
+{
+    font-size: 1.1rem;
+}
+
+/* 627 px is when flex box on index.html goes to 1 row per box */
+@media only screen and (max-width: 627px)
+{
+    h1 { font-size: 2rem;   }
+    h2 { font-size: 1.5rem; }
 }

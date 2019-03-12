@@ -27,7 +27,7 @@
 
 .quiz-selector a
 {
-    padding: 2em;
+    padding: 1em;
     display: block;
     flex-basis: 0;
     flex-grow: 1;
@@ -62,18 +62,120 @@
 .quiz-wrapper
 {
     text-align: center;
+    object-fit: contain;
 }
 
 .quiz-image
 {
     margin: auto;
-    width: 80%;
-    height: 500px;
-    background-color: rgba(0, 0, 0, 0.15);
-    background-repeat: none;
-    background-size: cover;
-    background-image: url("../img/mammals/brunbjörn.jpg");
-    background-position: center;
+    margin-top: 1em;
+    width: 80vw;
+    max-width: 600px;
+    height: auto;
     border-radius: 1em;
     box-shadow: 0 0 7px #303030;
+}
+
+.quiz-form
+{
+    width: 80vw;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 1em;
+}
+
+.quiz-field
+{
+    width: 100%;
+    height: 2rem;
+    margin: 0;
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quiz-field label
+{
+    text-align: left;
+    flex-basis: 0;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.quiz-field select,
+.quiz-field input,
+.quiz-form input[type="button"]
+{
+    font-family: 'Permanent Marker', sans-serif;
+    font-size: 1rem;
+    color: #303030;
+
+    background-color: rgba(0, 0, 0, 0.15);
+
+    -webkit-transition-property: background-color, transform;
+    -o-transition-property: background-color, transform;
+    -moz-transition-property: background-color, transform;
+    transition-property: background-color, transform;
+
+    -webkit-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.quiz-field select:hover,
+.quiz-field select:focus,
+.quiz-field input:hover,
+.quiz-field input:focus,
+.quiz-form input[type="button"]:hover,
+.quiz-form input[type="button"]:focus
+{
+    background-color: rgba(0, 0, 0, 0.3);
+
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    transform: translateY(-2px);
+}
+
+.quiz-field select
+{
+    flex-basis: 0;
+    flex-grow: 2;
+    border: none;
+    height: 100%;
+}
+
+.quiz-field select > option
+{
+    background-color: #d3c09c;
+}
+
+.quiz-field input[type="text"]
+{
+    flex-basis: 0;
+    flex-grow: 2;
+    border: none;
+    height: 100%;
+    padding-left: 0.5em;
+}
+
+.quiz-form input[type="button"]
+{
+    border: 1px solid black;
+    width: 100%;
+    font-size: 1.5rem;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.quiz-stats
+{
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.quiz-stats .statistic
+{
+    margin-top: 0.5em;
 }
