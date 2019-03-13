@@ -1,4 +1,28 @@
-// Global object
+var quizForm         = document.getElementById("js-quiz-form");
+var ordningInput     = document.getElementById("js-ordning");
+var familjInput      = document.getElementById("js-familj");
+var underfamiljInput = document.getElementById("js-underfamilj");
+var artInput         = document.getElementById("js-art");
+
+function submitForm()
+{
+    ordningInput.classList.add("invalid-answer");
+}
+
+if (quizForm.addEventListener) 
+{
+    // For all major browsers, except IE 8 and earlier
+    quizForm.addEventListener("submit", submitForm);
+} 
+else if (x.attachEvent)
+{
+    // For IE 8 and earlier versions
+    quizForm.attachEvent("submit", submitForm);
+}
+
+
+
+/* Old code
 var MAMMALS = {};
 MAMMALS.AvailableMammals = [
     new Mammal("Rovdjur", "Björnar", "Ingen", "brunbjörn"),
@@ -167,3 +191,4 @@ function RemoveTextboxHighlight()
 {
     $("#art").removeClass("incorrectHighlight");
 }
+*/

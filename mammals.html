@@ -22,10 +22,10 @@
                 <img src="img/mammals/brunbjörn.jpg" class="quiz-image"></img>
                 <h3 id="sectionHeader">Vilket är djuret?</h3>
                 
-                <form class="quiz-form">
+                <form id="js-quiz-form" class="quiz-form" onsubmit="return false;">
                     <div class="quiz-field">
-                        <label for="ordning">Ordning</label>
-                        <select name="ordning" id="ordning">
+                        <label for="js-ordning">Ordning</label>
+                        <select id="js-ordning">
                             <option>Välj ordning</option>
                             <option>Rovdjur</option>
                             <option>Partåiga hovdjur</option>
@@ -37,8 +37,8 @@
                     </div>
                     
                     <div class="quiz-field">
-                        <label for="familj">Familj</label>
-                        <select class="invalid-answer" name="familj" id="familj">
+                        <label for="js-familj">Familj</label>
+                        <select id="js-familj">
                             <option>Välj familj</option>
                             <option>Björnar</option>
                             <option>Hunddjur</option>
@@ -59,8 +59,8 @@
                     </div>
                     
                     <div class="quiz-field">
-                        <label for="underfamilj">Underfamilj</label>
-                        <select name="underfamilj" id="underfamilj">
+                        <label for="js-underfamilj">Underfamilj</label>
+                        <select id="js-underfamilj">
                             <option>Välj underfamilj</option>
                             <option>Ingen</option>
                             <option>Sorkar</option>
@@ -69,11 +69,11 @@
                     </div>
                     
                     <div class="quiz-field">
-                        <label for="art">Art</label> 
-                        <input name="art" type="text" id="art" />
+                        <label for="js-art">Art</label> 
+                        <input id="js-art" type="text" />
                     </div>
                     
-                    <input id="submitButton" type="button" value="Nästa">
+                    <input type="submit" value="Nästa">
                 </form>
 
                 <section class="quiz-stats">
@@ -81,23 +81,23 @@
 
                     <div class="statistic">
                         <label>Rätt:</label>
-                        <span class="rightSide" id="correct">0</span>
+                        <span id="js-stat-correct">0</span>
                     </div>
 
                     <div class="statistic">
                         <label>Fel:</label>
-                        <span class="rightSide" id="incorrect">0</span>
+                        <span id="js-stat-incorrect">0</span>
                     </div>
 
                     <div class="statistic">
                         <label>Andel rätt:</label>
-                        <span class="rightSide" id="proportion">0%</span>
+                        <span id="js-stat-percent">0%</span>
                     </div>
                 </section>
             </div>
 
         </div>
 
-        <script src="mammalQuiz.js" async></script>
+        <script src="mammals.js"></script>
     </body>
 </html>
