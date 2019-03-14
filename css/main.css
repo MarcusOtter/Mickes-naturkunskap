@@ -186,7 +186,8 @@
 }
 
 /* Needs some extra specificity for border */
-.quiz-form .quiz-field .invalid-answer
+.quiz-form .quiz-field .invalid-answer,
+.invalid-answer
 {
     border: 1px solid #e55555;
 
