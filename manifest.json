@@ -1,8 +1,20 @@
 {
     "name": "Mickes naturkunskap",
-    "short_name": "Naturkunskap",
-    "start_url": "/",
-    "display": "standalone",
+    "short_name": "Mickes naturkunskap",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#e4c593",
     "background_color": "#e4c593",
-    "theme_color": "#e4c593"
+    "start_url": "/",
+    "display": "standalone"
 }
