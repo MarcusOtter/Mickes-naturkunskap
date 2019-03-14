@@ -1,26 +1,89 @@
-var quizForm         = document.getElementById("js-quiz-form");
-var ordningInput     = document.getElementById("js-ordning");
-var familjInput      = document.getElementById("js-familj");
-var underfamiljInput = document.getElementById("js-underfamilj");
-var artInput         = document.getElementById("js-art");
+/* Elements
+======================================== */
+var quizFormElement         = document.getElementById("js-quiz-form");
 
-function submitForm()
-{
-    ordningInput.classList.add("invalid-answer");
-}
+var ordningInputElement     = document.getElementById("js-ordning");
+var familjInputElement      = document.getElementById("js-familj");
+var underfamiljInputElement = document.getElementById("js-underfamilj");
+var artInputElement         = document.getElementById("js-art");
 
-if (quizForm.addEventListener) 
+var correctStatElement      = document.getElementById("js-stat-correct");
+var incorrectStatElement    = document.getElementById("js-stat-incorrect");
+var percentStatElement      = document.getElementById("js-stat-percent");
+
+
+/* Event listeners
+======================================== */
+if (quizFormElement.addEventListener) // For all major browsers, except IE 8 and earlier
 {
-    // For all major browsers, except IE 8 and earlier
-    quizForm.addEventListener("submit", submitForm);
+    quizFormElement.addEventListener("submit", trySubmitForm);
 } 
-else if (x.attachEvent)
+else if (x.attachEvent) // For IE 8 and earlier versions
 {
-    // For IE 8 and earlier versions
-    quizForm.attachEvent("submit", submitForm);
+    quizFormElement.attachEvent("submit", trySubmitForm);
 }
 
 
+/* Other variables
+======================================== */
+// add some "activeMammal" object
+
+/* Stats */
+// correctStatamount, incorrect stat amount, percent stat amount
+
+
+/* Functions
+======================================== */
+function initializeQuiz()
+{
+    // set activeMammal to a random mammal
+}
+
+function getRandomMammal()
+{
+    // return a random mammal object
+}
+
+function trySubmitForm()
+{
+    if (!validateForm()) { return; }
+
+    submitForm();
+}
+
+/**
+ * Validates the quiz form.
+ * @returns {boolean} Whether the answers matches the current mammal or not
+ */
+function validateForm()
+{
+    ordningInputElement.classList.add("invalid-answer");
+    familjInputElement.classList.add("invalid-answer");
+    underfamiljInputElement.classList.add("invalid-answer");
+    artInputElement.classList.add("invalid-answer");
+    return false;
+}
+
+function incrementCorrectStat()
+{
+    // add a point to correct score, recalculate percent stat and display
+}
+
+function incrementIncorrectStat()
+{
+    // add a point to incorrect score, recalculate percent stat and display
+}
+
+function recalculatePercentStat()
+{
+    // just recalculate the percent stat
+}
+
+function updateStatisticsText()
+{
+    // update correct answer text, incorrect answer text and
+    // the percent text
+}
 
 /* Old code
 var MAMMALS = {};
