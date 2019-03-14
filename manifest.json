@@ -1,0 +1,8 @@
+{
+    "name": "Mickes naturkunskap",
+    "short_name": "Naturkunskap",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#e4c593",
+    "theme_color": "#e4c593"
+}
