@@ -1,6 +1,7 @@
 /* Elements
 ======================================== */
 var quizFormElement         = document.getElementById("js-quiz-form");
+var mammalImageElement      = document.getElementById("js-mammal-image");
 
 var ordningInputElement     = document.getElementById("js-ordning");
 var familjInputElement      = document.getElementById("js-familj");
@@ -14,11 +15,22 @@ var percentStatElement      = document.getElementById("js-stat-percent");
 
 /* Event listeners
 ======================================== */
-if (quizFormElement.addEventListener) // For all major browsers, except IE 8 and earlier
+/* Window onload */
+if (window.addEventListener)
 {
-    quizFormElement.addEventListener("submit", trySubmitForm);
+    window.addEventListener("load", initializeQuiz, false);
+}
+else if (window.attachEvent)
+{
+    window.attachEvent("onload", initializeQuiz);
+}
+
+/* Quiz submit */
+if (quizFormElement.addEventListener)
+{
+    quizFormElement.addEventListener("submit", trySubmitForm, false);
 } 
-else if (x.attachEvent) // For IE 8 and earlier versions
+else if (quizFormElement.attachEvent)
 {
     quizFormElement.attachEvent("submit", trySubmitForm);
 }
@@ -26,232 +38,144 @@ else if (x.attachEvent) // For IE 8 and earlier versions
 
 /* Other variables
 ======================================== */
-// add some "activeMammal" object
+const MAMMALS_IMG_FOLDER = "../img/mammals/"
 
-/* Stats */
-// correctStatamount, incorrect stat amount, percent stat amount
+/* Statistics */
+var correctStatAmount = 0;
+var incorrectStatAmount = 0;
+var percentStatAmount = 0;
+
+var activeMammal = {};
+var allMammals = 
+[
+    new Mammal("brunbjörn",       "rovdjur",           "björnar",               "ingen",  "brunbjörn.jpg"),
+    new Mammal("varg",            "rovdjur",           "hunddjur",              "ingen",  "varg2.jpg"),
+    new Mammal("rödräv",          "rovdjur",           "hunddjur",              "ingen",  "rödräv.jpg"),
+//  new Mammal("fjällräv",        "rovdjur",           "hunddjur",              "ingen",  "fjällräv.jpg"), //missing img
+    new Mammal("järv",            "rovdjur",           "mårddjur",              "ingen",  "järv.jpg"),
+    new Mammal("grävling",        "rovdjur",           "mårddjur",              "ingen",  "grävling.jpg"),
+    new Mammal("mård",            "rovdjur",           "mårddjur",              "ingen",  "mård.jpg"),
+    new Mammal("mink",            "rovdjur",           "mårddjur",              "ingen",  "mink.jpg"),
+    new Mammal("hermelin",        "rovdjur",           "mårddjur",              "ingen",  "hermelin.jpg"),
+    new Mammal("lodjur",          "rovdjur",           "kattdjur",              "ingen",  "lodjur.jpg"),
+    new Mammal("älg",             "partåiga hovdjur",  "hjortdjur",             "ingen",  "älg.jpg"),
+    new Mammal("kronhjort",       "partåiga hovdjur",  "hjortdjur",             "ingen",  "kronhjort.jpg"),
+    new Mammal("ren",             "partåiga hovdjur",  "hjortdjur",             "ingen",  "ren.jpg"),
+    new Mammal("dovhjort",        "partåiga hovdjur",  "hjortdjur",             "ingen",  "dovhjort.jpg"),
+    new Mammal("rådjur",          "partåiga hovdjur",  "hjortdjur",             "ingen",  "rådjur.jpg"),
+    new Mammal("myskoxe",         "partåiga hovdjur",  "slidhorndjur",          "ingen",  "myskoxe.jpg"),
+    new Mammal("vildsvin",        "partåiga hovdjur",  "svindjur",              "ingen",  "vildsvin.jpg"),
+    new Mammal("fälthare",        "hardjur",           "harar",                 "ingen",  "fälthare2.jpg"),
+    new Mammal("bäver",           "gnagare",           "bävrar",                "ingen",  "bäver2.jpg"),
+    new Mammal("ekorre",          "gnagare",           "ekorrar",               "ingen",  "ekorre2.jpg"),
+    new Mammal("fjällämmel",      "gnagare",           "hamsterartade gnagare", "sorkar", "fjällämmel2.jpg"),
+    new Mammal("åkersork",        "gnagare",           "hamsterartade gnagare", "sorkar", "åkersork.jpg"),
+    new Mammal("mindre skogsmus", "gnagare",           "råttdjur",              "möss",   "mindre skogsmus2.jpg"),
+    new Mammal("igelkott",        "äkta insektsätare", "igelkottdjur",          "ingen",  "igelkott.jpg"),
+    new Mammal("mullvad",         "äkta insektsätare", "mullvadsdjur",          "ingen",  "mullvad.jpg"),
+    new Mammal("näbbmus",         "äkta insektsätare", "näbbmöss",              "ingen",  "näbbmus.jpg"),
+    new Mammal("fladdermus",      "fladdermöss",       "näbbmöss",              "ingen",  "fladdermus.jpg")
+]
 
 
 /* Functions
 ======================================== */
 function initializeQuiz()
 {
-    // set activeMammal to a random mammal
+    activeMammal = getRandomMammal();
+    displayActiveAnimal();
+}
+
+function Mammal(art, ordning, familj, underfamilj, imgFileName)
+{
+    this.art = art;
+    this.ordning = ordning;
+    this.familj = familj;
+    this.underfamilj = underfamilj;
+    this.imgFileName = imgFileName;
 }
 
 function getRandomMammal()
 {
-    // return a random mammal object
+    return allMammals[Math.floor(Math.random() * allMammals.length)];
+}
+
+function displayActiveAnimal()
+{
+    mammalImageElement.src = MAMMALS_IMG_FOLDER.concat(activeMammal.imgFileName);
 }
 
 function trySubmitForm()
 {
-    if (!validateForm()) { return; }
+    if (!validateForm()) 
+    { 
+        incrementIncorrectStat();
+        return; 
+    }
 
-    submitForm();
+    incrementCorrectStat();
+    rerollActiveMammal();
 }
 
 /**
- * Validates the quiz form.
+ * Validates the quiz form. Adds styling to invalid answers.
  * @returns {boolean} Whether the answers matches the current mammal or not
  */
 function validateForm()
 {
-    ordningInputElement.classList.add("invalid-answer");
-    familjInputElement.classList.add("invalid-answer");
-    underfamiljInputElement.classList.add("invalid-answer");
-    artInputElement.classList.add("invalid-answer");
-    return false;
+    var ordningIsCorrect     = ordningInputElement.value.toLowerCase()     === activeMammal.ordning;
+    var familjIsCorrect      = familjInputElement.value.toLowerCase()      === activeMammal.familj;
+    var underfamiljIsCorrect = underfamiljInputElement.value.toLowerCase() === activeMammal.underfamilj;
+    var artIsCorrect         = artInputElement.value.toLowerCase()         === activeMammal.art;
+
+    ordningInputElement.classList.remove("invalid-answer");
+    familjInputElement.classList.remove("invalid-answer");
+    underfamiljInputElement.classList.remove("invalid-answer");
+    artInputElement.classList.remove("invalid-answer");
+
+    if (!ordningIsCorrect)     { ordningInputElement.classList.add("invalid-answer"); }
+    if (!familjIsCorrect)      { familjInputElement.classList.add("invalid-answer"); }
+    if (!underfamiljIsCorrect) { underfamiljInputElement.classList.add("invalid-answer"); }
+    if (!artIsCorrect)         { artInputElement.classList.add("invalid-answer"); }
+
+    return ordningIsCorrect && familjIsCorrect && underfamiljIsCorrect && artIsCorrect;
+}
+
+function rerollActiveMammal()
+{
+    var newMammal = getRandomMammal();
+
+    while (newMammal === activeMammal)
+    {
+        newMammal = getRandomMammal();
+    }
+
+    activeMammal = newMammal;
+    displayActiveAnimal();
 }
 
 function incrementCorrectStat()
 {
-    // add a point to correct score, recalculate percent stat and display
+    correctStatAmount++;
+    recalculatePercentStat();
+    updateStatisticsText();
 }
 
 function incrementIncorrectStat()
 {
-    // add a point to incorrect score, recalculate percent stat and display
+    incorrectStatAmount++;
+    recalculatePercentStat();
+    updateStatisticsText();
 }
 
 function recalculatePercentStat()
 {
-    // just recalculate the percent stat
+    percentStatAmount = Math.round( (correctStatAmount / (correctStatAmount + incorrectStatAmount)) * 100 ) 
 }
 
 function updateStatisticsText()
 {
-    // update correct answer text, incorrect answer text and
-    // the percent text
+    correctStatElement.innerText   = correctStatAmount;
+    incorrectStatElement.innerText = incorrectStatAmount;
+    percentStatElement.innerText   = percentStatAmount.toString().concat("%");
 }
-
-/* Old code
-var MAMMALS = {};
-MAMMALS.AvailableMammals = [
-    new Mammal("Rovdjur", "Björnar", "Ingen", "brunbjörn"),
-    new Mammal("Rovdjur", "Hunddjur", "Ingen", "varg"),
-    new Mammal("Äkta insektsätare", "Hamsterartade gnagare", "Sorkar", "fjällämmel")
-]
-
-// Mammal constructor
-function Mammal(ordning, familj, underfamilj, art)
-{
-    this.ordning = ordning;
-    this.familj = familj;
-    this.underfamilj = underfamilj;
-    this.art = art;
-}
-
-// Called when the DOM is ready
-$(function()
-{
-    MAMMALS.PreviousAnimalNumber = -1;
-    SetNewAnimal();
-
-    $("#ordning").change(RemoveHighlight);
-    $("#familj").change(RemoveHighlight);
-    $("#underfamilj").change(RemoveHighlight);
-    $("#art").change(RemoveTextboxHighlight);
-    $("#submitButton").click(Submit);
-});
-
-function SetNewAnimal()
-{
-    // Clears the text input
-    $("#art").val("");
-
-    let newAnimalNumber = -1;
-    // Assure that the animal is not the same as the last time
-    do 
-    {
-        newAnimalNumber = Math.round(Math.random() * (MAMMALS.AvailableMammals.length -1));
-    }
-    while(newAnimalNumber === MAMMALS.PreviousAnimalNumber);
-
-    MAMMALS.CorrectAnimal = MAMMALS.AvailableMammals[newAnimalNumber];
-
-    // TODO: Change "title" to "src" when all the images are in
-    $("#quizImg").attr("title", `../Images/${MAMMALS.CorrectAnimal.art.toLowerCase()}.jpg`);
-
-    MAMMALS.PreviousAnimalNumber = newAnimalNumber;
-}
-
-function Submit()
-{
-    let ordning = $("#ordning").val();
-    let familj = $("#familj").val();
-    let underfamilj = $("#underfamilj").val();
-    let art = $("#art").val().toLowerCase();
-    let correct = MAMMALS.CorrectAnimal;
-
-    if(ordning === correct.ordning
-    && familj === correct.familj
-    && underfamilj === correct.underfamilj
-    && art === correct.art)
-    {
-        CorrectAnswer();
-        SetNewAnimal();
-    }
-    else
-    {
-        IncorrectAnswer();
-        HighlightMistakes();
-        // TODO: Make a box pop up somewhere close
-        // to the answer boxes that lets you correct all the mistakes
-        // (gives you 1 incorrect answer per field)
-    }
-}
-
-function CorrectAnswer()
-{
-    let correct = $("#correct");
-    correct.text(parseInt(correct.text()) + 1);
-    CalculateProportion();
-}
-
-function IncorrectAnswer()
-{
-    let input = confirm("Vill du rätta dina svar? (Detta kommer att ändras till en knapp snart)");
-    SetAnswersCorrect(input);
-
-    let incorrect = $("#incorrect");
-    incorrect.text(parseInt(incorrect.text()) + 1);
-    CalculateProportion();
-}
-
-function CalculateProportion()
-{
-    let proportion = $("#proportion");
-    let amountCorrect = parseInt($("#correct").text());
-    let amountIncorrect = parseInt($("#incorrect").text());
-    let tries = amountCorrect + amountIncorrect;
-
-    proportion.text(`${Math.round((amountCorrect / tries) * 100)}%`);
-}
-
-function SetAnswersCorrect(input)
-{
-    if (input === true)
-    {
-        let ordning = $("#ordning");
-        let familj = $("#familj");
-        let underfamilj = $("#underfamilj");
-        let art = $("#art");
-        let correct = MAMMALS.CorrectAnimal;
-    
-        ordning.val(correct.ordning);
-        familj.val(correct.familj);
-        underfamilj.val(correct.underfamilj);
-        art.val(correct.art);
-
-        ordning.removeClass("incorrectHighlight");
-        familj.removeClass("incorrectHighlight");
-        underfamilj.removeClass("incorrectHighlight");
-        art.removeClass("incorrectHighlight");
-    }
-}
-
-
-function HighlightMistakes()
-{
-    let ordning = $("#ordning");
-    let familj = $("#familj");
-    let underfamilj = $("#underfamilj");
-    let art = $("#art");
-    let correct = MAMMALS.CorrectAnimal;
-
-    if (ordning.val() !== correct.ordning)
-    {
-        ordning.addClass("incorrectHighlight");
-    }
-    
-    if (familj.val() !== correct.familj)
-    {
-        familj.addClass("incorrectHighlight");
-    }
-
-    if (underfamilj.val() !== correct.underfamilj)
-    {
-        underfamilj.addClass("incorrectHighlight");
-    }
-
-    if (art.val().toLowerCase() !== correct.art)
-    {
-        art.addClass("incorrectHighlight");
-    }
-
-    // Add a css class to the parent of the select id that is wrong
-    // Also need to remove those classes once the player changes the value of the select or input tags.
-}
-
-// Only works for "select" html tags. Not text box input!
-function RemoveHighlight()
-{
-    $(`#${this.name}`).removeClass("incorrectHighlight");
-}
-
-function RemoveTextboxHighlight()
-{
-    $("#art").removeClass("incorrectHighlight");
-}
-*/
