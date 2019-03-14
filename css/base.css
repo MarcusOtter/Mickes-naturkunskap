@@ -16,24 +16,16 @@
 
 body
 {
+    background-color: #e4c593;
+    background-image: url("../img/kraft.jpg");
+    background-repeat: repeat;
     color: #303030;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Permanent Marker', sans-serif;
     overflow-x: hidden;
     scroll-behavior: smooth;
-}
-
-.background-image
-{
-    background-image: url("../img/kraft.jpg");
-    background-repeat: repeat;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -10;
+    overscroll-behavior: none;
 }
 
 h1, h2, h3, h4, h5, h6

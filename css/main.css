@@ -111,6 +111,8 @@
     font-size: 1rem;
     color: #303030;
 
+    border-radius: 0.3em;
+
     background-color: rgba(0, 0, 0, 0.15);
 
     -webkit-transition-property: background-color, transform;
@@ -156,10 +158,10 @@
 {
     padding: 0;
     flex-basis: 0;
-    flex-grow: 1.94; /* Flexbox doesn't like border-box sizing or something.. */
+    flex-grow: 1.976; /* Flexbox doesn't like border-box sizing or something.. */
     border: none;
     height: 100%;
-    padding-left: 0.75em;
+    padding-left: 0.3em;
     max-width: 45vw;
 }
 
