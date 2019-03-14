@@ -38,7 +38,7 @@ else if (quizFormElement.attachEvent)
 
 /* Other variables
 ======================================== */
-const MAMMALS_IMG_FOLDER = "../img/mammals/"
+const MAMMALS_IMG_FOLDER = "img/mammals/"
 
 /* Statistics */
 var correctStatAmount = 0;
