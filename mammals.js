@@ -74,8 +74,8 @@ var allMammals =
     new Mammal("igelkott",        "äkta insektsätare", "igelkottdjur",          "ingen",  "igelkott.jpg"),
     new Mammal("mullvad",         "äkta insektsätare", "mullvadsdjur",          "ingen",  "mullvad.jpg"),
     new Mammal("näbbmus",         "äkta insektsätare", "näbbmöss",              "ingen",  "näbbmus.jpg"),
-    new Mammal("fladdermus",      "fladdermöss",       "näbbmöss",              "ingen",  "fladdermus.jpg")
-]
+    new Mammal("fladdermus",      "fladdermöss",       "näbbmöss",              "möss",   "fladdermus.jpg")
+];
 
 
 /* Functions
@@ -115,6 +115,7 @@ function trySubmitForm()
 
     incrementCorrectStat();
     rerollActiveMammal();
+    resetInputElements();
 }
 
 /**
@@ -178,4 +179,15 @@ function updateStatisticsText()
     correctStatElement.innerText   = correctStatAmount;
     incorrectStatElement.innerText = incorrectStatAmount;
     percentStatElement.innerText   = percentStatAmount.toString().concat("%");
+}
+
+/**
+ * Resets the input elements to the first option
+ */
+function resetInputElements()
+{
+    ordningInputElement.selectedIndex = 0;
+    familjInputElement.selectedIndex = 0;
+    underfamiljInputElement.selectedIndex = 0;
+    artInputElement.value = "";
 }
